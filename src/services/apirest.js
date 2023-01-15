@@ -1,1 +1,1 @@
-export const Apiurl= "http://api.solodata.es/";
+export const Apiurl= "https://api.solodata.es/";
