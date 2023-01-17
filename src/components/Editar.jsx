@@ -34,6 +34,18 @@ class Editar extends React.Component{
             }
         })
     }
+    put =()=>{
+        console.log(this.state.form);
+        let url = Apiurl + "pacientes";
+        axios.put(url,this.state.form)
+        .then(response=>{
+            console.log(response);
+        })
+    }
+
+    manejadorSubmit = e=>{
+        e.preventDefault();
+    }
 
     componentDidMount(){
         let pacienteId = this.props.match.params.id;
@@ -67,7 +79,7 @@ class Editar extends React.Component{
                 </div>
                 <br />
                 <div className="container">
-                    <form className="form-horizontal">
+                    <form className="form-horizontal" onSubmit={this.manejadorSubmit}>
                         <div className="row">
                             <div className="col-sm-12">
                                 <label className='col-md-2 control label'>Nombre</label>
@@ -150,7 +162,7 @@ class Editar extends React.Component{
                             </div>
                         </div>
                         <br /><br />
-                            <button type="sunmit" className="btn btn-primary" style={{marginRight:"10px"}}>Editar</button>
+                            <button type="sunmit" className="btn btn-primary" style={{marginRight:"10px"}} onClick={()=>this.put()} >Editar</button>
                             <button type="sunmit" className="btn btn-danger" style={{marginRight:"10px"}}>Eliminar</button>
                             <a href="/dashboard" className="btn btn-dark">Salir</a>
                     </form>
