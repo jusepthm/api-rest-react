@@ -10,7 +10,7 @@ class Dashboard extends React.Component {
     }
 
     clickPaciente(id){
-        console.log(id);
+        this.props.history.push("/editar/"+id);
     }
 
     componentDidMount() {
